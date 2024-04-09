@@ -2,7 +2,7 @@
 Challenge técnico de Meli para candidatos mobile
 
 ## Description
-La app consiste en una pantalla principal con una barra de busqueda, que permite buscar cualquier producto disponible en la api para devs de Meli. Luego, el usuario puede hacer click en cualquier producto del listado, lo cual lo lleva a la pantalla de detalle de dicho producto.
+La app consiste en una pantalla principal con una barra de busqueda, que permite buscar cualquier producto disponible en la api para devs de Meli. Al hacer click en el botón buscar, se abre una nueva pantalla con un listado de productos relacionados a esa búsqueda. Por último, el usuario puede hacer click en cualquier producto, lo cual lo llevará la pantalla de detalle de dicho producto.
 
 ## Diseño, estructura de la app, y herramientas a utilizar.
 Para el desarrollo de la app, utilizaré SwiftUI para la parte visual, y Combine para la lógica de negocio. Si bien en el último proyecto grande en el que trabajé utilizamos UIKit + vistas por código, y RxSwift para la lógica de negocio, me parece que este challenge es una buena oportunidad de utilizar y aprender mas en profundidad sobre otros frameworks.
