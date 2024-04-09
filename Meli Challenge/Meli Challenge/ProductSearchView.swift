@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ProductSearchView.swift
 //  Meli Challenge
 //
 //  Created by Nahuel Jose Roldan on 09/04/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ProductSearchView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ProductSearchView()
 }

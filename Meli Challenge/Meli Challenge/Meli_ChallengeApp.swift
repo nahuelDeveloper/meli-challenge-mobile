@@ -11,7 +11,7 @@ import SwiftUI
 struct Meli_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ProductSearchView()
         }
     }
 }
