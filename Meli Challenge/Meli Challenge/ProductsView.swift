@@ -7,9 +7,20 @@
 
 import SwiftUI
 
+let products = ["Producto 1", "Producto 2", "Producto 3"]
+
 struct ProductsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                ForEach(products, id: \.self) { product in
+                    Text(product)
+                }
+            }
+            // TODO: show search text from ProductSearchView.
+            .navigationTitle("Search text")
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 

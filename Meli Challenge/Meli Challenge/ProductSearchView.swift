@@ -16,6 +16,7 @@ struct ProductSearchView: View {
     
     var body: some View {
         NavigationStack {
+            // TODO: decide what to show here, maybe a list with previously searched products.
             List {
                 ForEach(articles, id: \.self) { article in
                     Text(article)

@@ -9,7 +9,25 @@ import SwiftUI
 
 struct ProductDetailView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            Spacer()
+            VStack(spacing: 20) {
+                VStack {
+                    Text("Product")
+                        .font(.title)
+                    Text("This is a product")
+                        .font(.subheadline)
+                }
+                Image(systemName: "car.fill")
+                    .font(.system(size: 220))
+                Text("$10.000.000")
+                    .font(.system(.largeTitle))
+            }
+            Spacer()
+            Spacer()
+            Spacer()
+            Spacer()
+        }
     }
 }
 
