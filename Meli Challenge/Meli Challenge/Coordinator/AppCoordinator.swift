@@ -8,6 +8,11 @@
 import SwiftUI
 import Combine
 
+enum ProductScreen {
+    case products
+    case detail
+}
+
 final class AppCoordinator: ObservableObject {
     @Published var path: NavigationPath
     private var cancellables = Set<AnyCancellable>()
@@ -30,8 +35,25 @@ final class AppCoordinator: ObservableObject {
     private func bind(productSearchView: ProductSearchView) {
         productSearchView.searchAction
             .receive(on: DispatchQueue.main)
-            .sink { searchText in
+            .sink { [weak self] searchText in
                 print("Search text: \(searchText)")
+                self?.path.append(ProductScreen.products)
+            }
+            .store(in: &cancellables)
+    }
+    
+    func createProductsView() -> some View {
+        let view = ProductsView()
+        bind(productsView: view)
+        return view
+    }
+    
+    private func bind(productsView: ProductsView) {
+        productsView.selectProductAction
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] product in
+                print("Selected product")
+                self?.path.append(ProductScreen.detail)
             }
             .store(in: &cancellables)
     }

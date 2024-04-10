@@ -15,6 +15,14 @@ struct Meli_ChallengeApp: App {
         WindowGroup {
             NavigationStack(path: $appCoordinator.path) {
                 appCoordinator.start()
+                    .navigationDestination(for: ProductScreen.self) { screen in
+                        switch screen {
+                        case .products:
+                            appCoordinator.createProductsView()
+                        case .detail:
+                            ProductDetailView()
+                        }
+                    }
             }
         }
         .environmentObject(appCoordinator)
