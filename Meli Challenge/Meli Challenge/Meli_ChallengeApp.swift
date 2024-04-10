@@ -15,13 +15,11 @@ struct Meli_ChallengeApp: App {
         WindowGroup {
             NavigationStack(path: $appCoordinator.path) {
                 appCoordinator.start()
-                    .navigationDestination(for: ProductScreen.self) { screen in
-                        switch screen {
-                        case .products:
-                            appCoordinator.createProductsView()
-                        case .detail:
-                            ProductDetailView()
-                        }
+                    .navigationDestination(for: String.self) { searchText in
+                        appCoordinator.createProductsView(searchText: searchText)
+                    }
+                    .navigationDestination(for: Product.self) { product in
+                        appCoordinator.createProductDetailView(product: product)
                     }
             }
         }

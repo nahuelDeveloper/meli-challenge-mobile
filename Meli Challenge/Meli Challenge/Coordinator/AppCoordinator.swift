@@ -37,12 +37,12 @@ final class AppCoordinator: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] searchText in
                 print("Search text: \(searchText)")
-                self?.path.append(ProductScreen.products)
+                self?.path.append(searchText)
             }
             .store(in: &cancellables)
     }
     
-    func createProductsView() -> some View {
+    func createProductsView(searchText: String) -> some View {
         let view = ProductsView()
         bind(productsView: view)
         return view
@@ -53,8 +53,13 @@ final class AppCoordinator: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] product in
                 print("Selected product")
-                self?.path.append(ProductScreen.detail)
+                self?.path.append(product)
             }
             .store(in: &cancellables)
+    }
+    
+    func createProductDetailView(product: Product) -> some View {
+        let view = ProductDetailView()
+        return view
     }
 }

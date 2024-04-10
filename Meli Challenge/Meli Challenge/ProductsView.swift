@@ -8,23 +8,21 @@
 import SwiftUI
 import Combine
 
-let products = ["Producto 1", "Producto 2", "Producto 3"]
-
 struct ProductsView: View {
 //    @EnvironmentObject private var appCoordinator: AppCoordinator
     
     var pepe = ""
     
-    let selectProductAction = PassthroughSubject<String, Never>()
+    let selectProductAction = PassthroughSubject<Product, Never>()
     
     var body: some View {
         List {
-            ForEach(products, id: \.self) { product in
+            ForEach(Model.products, id: \.id) { product in
                 Button {
                     print("select product")
                     selectProductAction.send(product)
                 } label: {
-                    Text(product)
+                    Text(product.name)
                 }
             }
         }

@@ -8,11 +8,7 @@
 import SwiftUI
 import Combine
 
-let sampleArticles = ["Article 1", "Article 2", "Article 3"]
-let suggestions = ["auto", "mesa", "libro"]
-
 struct ProductSearchView: View {
-    @State var articles = sampleArticles
     @State private var searchText = ""
     
     let searchAction = PassthroughSubject<String, Never>()
@@ -20,15 +16,13 @@ struct ProductSearchView: View {
     var body: some View {
         // TODO: decide what to show here, maybe a list with previously searched products.
         List {
-            ForEach(articles, id: \.self) { article in
-                Text(article)
-            }
+            Text("No hay búsquedas recientes")
         }
         .navigationTitle("Meli Challenge")
         .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $searchText, prompt: "Buscar en Mercado Libre") {
             // TODO: load suggestions from view model.
-            ForEach(suggestions, id: \.self) { suggestion in
+            ForEach(Model.searchSuggestions, id: \.self) { suggestion in
                 Text(suggestion)
                     .searchCompletion(suggestion)
             }
