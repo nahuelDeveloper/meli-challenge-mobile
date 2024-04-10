@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct Meli_ChallengeApp: App {
+    @StateObject private var appCoordinator = AppCoordinator(path: NavigationPath())
+    
     var body: some Scene {
         WindowGroup {
-            ProductSearchView()
+            NavigationStack(path: $appCoordinator.path) {
+                appCoordinator.start()
+            }
         }
+        .environmentObject(appCoordinator)
     }
 }

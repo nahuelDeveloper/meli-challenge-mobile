@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70A27B9F2BC6CE7100BE5B18 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A27B9E2BC6CE7100BE5B18 /* AppCoordinator.swift */; };
 		70F46A622BC5DE8E004C3795 /* Meli_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46A612BC5DE8E004C3795 /* Meli_ChallengeApp.swift */; };
 		70F46A642BC5DE8E004C3795 /* ProductSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46A632BC5DE8E004C3795 /* ProductSearchView.swift */; };
 		70F46A662BC5DE8F004C3795 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F46A652BC5DE8F004C3795 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		70A27B9E2BC6CE7100BE5B18 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		70F46A5E2BC5DE8E004C3795 /* Meli Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meli Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F46A612BC5DE8E004C3795 /* Meli_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meli_ChallengeApp.swift; sourceTree = "<group>"; };
 		70F46A632BC5DE8E004C3795 /* ProductSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70A27B9D2BC6CE5F00BE5B18 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				70A27B9E2BC6CE7100BE5B18 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		70F46A552BC5DE8E004C3795 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 		70F46A602BC5DE8E004C3795 /* Meli Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				70A27B9D2BC6CE5F00BE5B18 /* Coordinator */,
 				70F46A612BC5DE8E004C3795 /* Meli_ChallengeApp.swift */,
 				70F46A632BC5DE8E004C3795 /* ProductSearchView.swift */,
 				70F46A8B2BC5E12A004C3795 /* ProductsView.swift */,
@@ -265,6 +276,7 @@
 			files = (
 				70F46A642BC5DE8E004C3795 /* ProductSearchView.swift in Sources */,
 				70F46A8E2BC5E144004C3795 /* ProductDetailView.swift in Sources */,
+				70A27B9F2BC6CE7100BE5B18 /* AppCoordinator.swift in Sources */,
 				70F46A622BC5DE8E004C3795 /* Meli_ChallengeApp.swift in Sources */,
 				70F46A8C2BC5E12A004C3795 /* ProductsView.swift in Sources */,
 			);
