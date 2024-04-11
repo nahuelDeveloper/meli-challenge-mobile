@@ -13,12 +13,8 @@ struct ProductDetailView: View {
     var body: some View {
         Spacer()
         VStack(spacing: 20) {
-            VStack {
-                Text(viewModel.product.title)
+            Text(viewModel.product.title)
                     .font(.title)
-                Text(viewModel.product.description)
-                    .font(.subheadline)
-            }
             Image(systemName: "car.fill")
                 .font(.system(size: 220))
             Text("$\(viewModel.product.price)")
@@ -33,5 +29,5 @@ struct ProductDetailView: View {
 
 #Preview {
     ProductDetailView(viewModel: ProductDetailViewModel(
-        product: Item(id: UUID(), title: "Producto 1", description: "This is a product", price: 100.0)))
+        product: Item(id: "MLA1", title: "Producto 1", price: 100.0)))
 }

@@ -21,8 +21,6 @@ class ProductsService: ProductsServicing {
 class MockProductsService: ProductsServicing {
     
     func fetchItems() -> [Item] {
-        return [Item(id: UUID(), title: "Producto 1", description: "This is a product", price: 100.0),
-                Item(id: UUID(), title: "Producto 2", description: "This is a product", price: 50.0),
-                Item(id: UUID(), title: "Producto 3", description: "This is a product", price: 300.0)]
+        return Bundle.main.decode([Item].self, from: "mock_items.json")
     }
 }

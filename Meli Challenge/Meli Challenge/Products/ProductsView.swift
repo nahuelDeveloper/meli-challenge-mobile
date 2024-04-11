@@ -31,7 +31,7 @@ struct ProductsView: View {
         // TODO: show search text from ProductSearchView.
         .navigationTitle("Search text")
         .navigationBarTitleDisplayMode(.inline)
-        .onFirstAppear {
+        .onAppear {
             viewModel.loadItems()
         }
     }
