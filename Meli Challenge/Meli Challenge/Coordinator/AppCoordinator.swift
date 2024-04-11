@@ -8,10 +8,12 @@
 import SwiftUI
 import Combine
 
-enum ProductScreen {
-    case products
-    case detail
+enum APIEnvironment {
+    case mock
+    case prod
 }
+
+let apiEnvironment = APIEnvironment.mock
 
 final class AppCoordinator: ObservableObject {
     @Published var path: NavigationPath
@@ -43,7 +45,9 @@ final class AppCoordinator: ObservableObject {
     }
     
     func createProductsView(searchText: String) -> some View {
-        let view = ProductsView(viewModel: ProductsViewModel())
+        let viewModel = ProductsViewModel(
+            productsService: apiEnvironment == .prod ? ProductsService() : MockProductsService())
+        let view = ProductsView(viewModel: viewModel)
         bind(productsView: view)
         return view
     }
@@ -58,8 +62,8 @@ final class AppCoordinator: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func createProductDetailView(product: Product) -> some View {
-        let view = ProductDetailView(viewModel: ProductDetailViewModel())
+    func createProductDetailView(product: Item) -> some View {
+        let view = ProductDetailView(viewModel: ProductDetailViewModel(product: product))
         return view
     }
 }

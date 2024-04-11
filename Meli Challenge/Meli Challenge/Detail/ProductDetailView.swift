@@ -14,7 +14,7 @@ struct ProductDetailView: View {
         Spacer()
         VStack(spacing: 20) {
             VStack {
-                Text(viewModel.product.name)
+                Text(viewModel.product.title)
                     .font(.title)
                 Text(viewModel.product.description)
                     .font(.subheadline)
@@ -32,5 +32,6 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-    ProductDetailView(viewModel: ProductDetailViewModel())
+    ProductDetailView(viewModel: ProductDetailViewModel(
+        product: Item(id: UUID(), title: "Producto 1", description: "This is a product", price: 100.0)))
 }

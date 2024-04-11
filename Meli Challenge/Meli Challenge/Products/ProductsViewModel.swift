@@ -9,7 +9,15 @@ import Foundation
 import Combine
 
 class ProductsViewModel: ObservableObject {
-    @Published var products = [Product(id: UUID(), name: "Producto 1", description: "This is a product", price: 100.0),
-                               Product(id: UUID(), name: "Producto 2", description: "This is a product", price: 50.0),
-                               Product(id: UUID(), name: "Producto 3", description: "This is a product", price: 300.0)]
+    let productsService: ProductsServicing
+    
+    @Published var products = [Item]()
+    
+    init(productsService: ProductsServicing) {
+        self.productsService = productsService
+    }
+    
+    func loadItems() {
+        products = productsService.fetchItems()
+    }
 }

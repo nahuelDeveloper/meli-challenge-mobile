@@ -18,7 +18,7 @@ struct Meli_ChallengeApp: App {
                     .navigationDestination(for: String.self) { searchText in
                         appCoordinator.createProductsView(searchText: searchText)
                     }
-                    .navigationDestination(for: Product.self) { product in
+                    .navigationDestination(for: Item.self) { product in
                         appCoordinator.createProductDetailView(product: product)
                     }
             }

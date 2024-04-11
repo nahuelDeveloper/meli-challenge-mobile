@@ -9,5 +9,9 @@ import Foundation
 import Combine
 
 class ProductDetailViewModel {
-    let product = Product(id: UUID(), name: "Producto 1", description: "This is a product", price: 100.0)
+    let product: Item
+    
+    init(product: Item) {
+        self.product = product
+    }
 }

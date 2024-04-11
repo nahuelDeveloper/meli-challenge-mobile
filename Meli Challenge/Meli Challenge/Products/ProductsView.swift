@@ -11,25 +11,37 @@ import Combine
 struct ProductsView: View {
     @ObservedObject var viewModel: ProductsViewModel
         
-    let selectProductAction = PassthroughSubject<Product, Never>()
+    let selectProductAction = PassthroughSubject<Item, Never>()
     
     var body: some View {
         List {
-            ForEach($viewModel.products, id: \.id) { product in
-                Button {
-                    print("select product")
-                    selectProductAction.send(product.wrappedValue)
-                } label: {
-                    Text(product.wrappedValue.name)
+            ForEach(viewModel.products) { product in
+                NavigationLink(product.title) {
+                    createProductDetailView(product: product)
                 }
+                // FIXME: (BUG) when user goes to Product Detail and returns, the list disappears.
+//                Button {
+//                    print("select product")
+//                    selectProductAction.send(product)
+//                } label: {
+//                    Text(product.title)
+//                }
             }
         }
         // TODO: show search text from ProductSearchView.
         .navigationTitle("Search text")
         .navigationBarTitleDisplayMode(.inline)
+        .onFirstAppear {
+            viewModel.loadItems()
+        }
+    }
+    
+    private func createProductDetailView(product: Item) -> some View {
+        let view = ProductDetailView(viewModel: ProductDetailViewModel(product: product))
+        return view
     }
 }
 
 #Preview {
-    ProductsView(viewModel: ProductsViewModel())
+    ProductsView(viewModel: ProductsViewModel(productsService: MockProductsService()))
 }
