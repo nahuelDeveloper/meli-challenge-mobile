@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductDetailView: View {
-    let viewModel = ProductDetailViewModel()
+    let viewModel: ProductDetailViewModel
     
     var body: some View {
         Spacer()
@@ -32,5 +32,5 @@ struct ProductDetailView: View {
 }
 
 #Preview {
-    ProductDetailView()
+    ProductDetailView(viewModel: ProductDetailViewModel())
 }

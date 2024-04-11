@@ -27,7 +27,7 @@ final class AppCoordinator: ObservableObject {
     }
     
     private func createProductSearchView() -> some View {
-        let view = ProductSearchView()
+        let view = ProductSearchView(viewModel: ProductSearchViewModel())
         bind(productSearchView: view)
         return view
     }
@@ -43,7 +43,7 @@ final class AppCoordinator: ObservableObject {
     }
     
     func createProductsView(searchText: String) -> some View {
-        let view = ProductsView()
+        let view = ProductsView(viewModel: ProductsViewModel())
         bind(productsView: view)
         return view
     }
@@ -59,7 +59,7 @@ final class AppCoordinator: ObservableObject {
     }
     
     func createProductDetailView(product: Product) -> some View {
-        let view = ProductDetailView()
+        let view = ProductDetailView(viewModel: ProductDetailViewModel())
         return view
     }
 }

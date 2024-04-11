@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct ProductSearchView: View {
-    @ObservedObject var viewModel = ProductSearchViewModel()
+    @ObservedObject var viewModel: ProductSearchViewModel
     
     let searchAction = PassthroughSubject<String, Never>()
     
@@ -40,5 +40,5 @@ struct ProductSearchView: View {
 }
 
 #Preview {
-    ProductSearchView()
+    ProductSearchView(viewModel: ProductSearchViewModel())
 }

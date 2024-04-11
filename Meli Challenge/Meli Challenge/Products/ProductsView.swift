@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct ProductsView: View {
-    @ObservedObject var viewModel = ProductsViewModel()
+    @ObservedObject var viewModel: ProductsViewModel
         
     let selectProductAction = PassthroughSubject<Product, Never>()
     
@@ -31,5 +31,5 @@ struct ProductsView: View {
 }
 
 #Preview {
-    ProductsView()
+    ProductsView(viewModel: ProductsViewModel())
 }
