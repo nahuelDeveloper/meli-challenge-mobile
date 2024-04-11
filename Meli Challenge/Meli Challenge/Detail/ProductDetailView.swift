@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    let viewModel = ProductDetailViewModel()
+    
     var body: some View {
         Spacer()
         VStack(spacing: 20) {
             VStack {
-                Text("Product")
+                Text(viewModel.product.name)
                     .font(.title)
-                Text("This is a product")
+                Text(viewModel.product.description)
                     .font(.subheadline)
             }
             Image(systemName: "car.fill")
                 .font(.system(size: 220))
-            Text("$10.000.000")
+            Text("$\(viewModel.product.price)")
                 .font(.system(.largeTitle))
         }
         Spacer()

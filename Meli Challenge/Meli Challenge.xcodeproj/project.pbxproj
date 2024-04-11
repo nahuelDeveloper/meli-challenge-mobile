@@ -18,6 +18,9 @@
 		70F46A7F2BC5DE8F004C3795 /* Meli_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46A7E2BC5DE8F004C3795 /* Meli_ChallengeUITestsLaunchTests.swift */; };
 		70F46A8C2BC5E12A004C3795 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46A8B2BC5E12A004C3795 /* ProductsView.swift */; };
 		70F46A8E2BC5E144004C3795 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46A8D2BC5E144004C3795 /* ProductDetailView.swift */; };
+		70FA461C2BC8094B0042357A /* ProductSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA461B2BC8094B0042357A /* ProductSearchViewModel.swift */; };
+		70FA461E2BC8095D0042357A /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA461D2BC8095D0042357A /* ProductsViewModel.swift */; };
+		70FA46202BC809870042357A /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA461F2BC809870042357A /* ProductDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		70F46A7E2BC5DE8F004C3795 /* Meli_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meli_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		70F46A8B2BC5E12A004C3795 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		70F46A8D2BC5E144004C3795 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		70FA461B2BC8094B0042357A /* ProductSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchViewModel.swift; sourceTree = "<group>"; };
+		70FA461D2BC8095D0042357A /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		70FA461F2BC809870042357A /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +96,6 @@
 		70F46A552BC5DE8E004C3795 = {
 			isa = PBXGroup;
 			children = (
-				70A27BA02BC70D7600BE5B18 /* Model.swift */,
 				70F46A602BC5DE8E004C3795 /* Meli Challenge */,
 				70F46A712BC5DE8F004C3795 /* Meli ChallengeTests */,
 				70F46A7B2BC5DE8F004C3795 /* Meli ChallengeUITests */,
@@ -113,9 +118,10 @@
 			children = (
 				70A27B9D2BC6CE5F00BE5B18 /* Coordinator */,
 				70F46A612BC5DE8E004C3795 /* Meli_ChallengeApp.swift */,
-				70F46A632BC5DE8E004C3795 /* ProductSearchView.swift */,
-				70F46A8B2BC5E12A004C3795 /* ProductsView.swift */,
-				70F46A8D2BC5E144004C3795 /* ProductDetailView.swift */,
+				70FA46212BC8103C0042357A /* Search */,
+				70FA46222BC811D00042357A /* Products */,
+				70FA46232BC813180042357A /* Detail */,
+				70A27BA02BC70D7600BE5B18 /* Model.swift */,
 				70F46A652BC5DE8F004C3795 /* Assets.xcassets */,
 				70F46A672BC5DE8F004C3795 /* Preview Content */,
 			);
@@ -145,6 +151,33 @@
 				70F46A7E2BC5DE8F004C3795 /* Meli_ChallengeUITestsLaunchTests.swift */,
 			);
 			path = "Meli ChallengeUITests";
+			sourceTree = "<group>";
+		};
+		70FA46212BC8103C0042357A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				70F46A632BC5DE8E004C3795 /* ProductSearchView.swift */,
+				70FA461B2BC8094B0042357A /* ProductSearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		70FA46222BC811D00042357A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70F46A8B2BC5E12A004C3795 /* ProductsView.swift */,
+				70FA461D2BC8095D0042357A /* ProductsViewModel.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		70FA46232BC813180042357A /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				70F46A8D2BC5E144004C3795 /* ProductDetailView.swift */,
+				70FA461F2BC809870042357A /* ProductDetailViewModel.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,10 +312,13 @@
 			files = (
 				70F46A642BC5DE8E004C3795 /* ProductSearchView.swift in Sources */,
 				70F46A8E2BC5E144004C3795 /* ProductDetailView.swift in Sources */,
+				70FA461E2BC8095D0042357A /* ProductsViewModel.swift in Sources */,
 				70A27B9F2BC6CE7100BE5B18 /* AppCoordinator.swift in Sources */,
 				70A27BA12BC70D7600BE5B18 /* Model.swift in Sources */,
 				70F46A622BC5DE8E004C3795 /* Meli_ChallengeApp.swift in Sources */,
 				70F46A8C2BC5E12A004C3795 /* ProductsView.swift in Sources */,
+				70FA461C2BC8094B0042357A /* ProductSearchViewModel.swift in Sources */,
+				70FA46202BC809870042357A /* ProductDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

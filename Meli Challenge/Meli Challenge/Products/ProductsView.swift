@@ -9,20 +9,18 @@ import SwiftUI
 import Combine
 
 struct ProductsView: View {
-//    @EnvironmentObject private var appCoordinator: AppCoordinator
-    
-    var pepe = ""
-    
+    @ObservedObject var viewModel = ProductsViewModel()
+        
     let selectProductAction = PassthroughSubject<Product, Never>()
     
     var body: some View {
         List {
-            ForEach(Model.products, id: \.id) { product in
+            ForEach($viewModel.products, id: \.id) { product in
                 Button {
                     print("select product")
-                    selectProductAction.send(product)
+                    selectProductAction.send(product.wrappedValue)
                 } label: {
-                    Text(product.name)
+                    Text(product.wrappedValue.name)
                 }
             }
         }

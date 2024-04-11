@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct ProductSearchView: View {
-    @State private var searchText = ""
+    @ObservedObject var viewModel = ProductSearchViewModel()
     
     let searchAction = PassthroughSubject<String, Never>()
     
@@ -20,19 +20,21 @@ struct ProductSearchView: View {
         }
         .navigationTitle("Meli Challenge")
         .navigationBarTitleDisplayMode(.inline)
-        .searchable(text: $searchText, prompt: "Buscar en Mercado Libre") {
+        .searchable(text: $viewModel.searchText, prompt: "Buscar en Mercado Libre") {
             // TODO: load suggestions from view model.
-            ForEach(Model.searchSuggestions, id: \.self) { suggestion in
-                Text(suggestion)
-                    .searchCompletion(suggestion)
+            ForEach($viewModel.searchSuggestions, id: \.self) { suggestion in
+                Text(suggestion.wrappedValue)
+                    .searchCompletion(suggestion.wrappedValue)
             }
         }
         .onSubmit(of: .search) {
             print("search")
-            searchAction.send(searchText)
+            searchAction.send(viewModel.searchText)
         }
-        .onChange(of: searchText) { oldValue, newValue in
+        .onChange(of: viewModel.searchText) { oldValue, newValue in
             // TODO: add logic to update suggestions as the user types in.
+            print("user typed: \(newValue)")
+            viewModel.search()
         }
     }
 }
