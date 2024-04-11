@@ -9,12 +9,13 @@ import Foundation
 import Combine
 
 class ProductsViewModel: ObservableObject {
-    let productsService: ProductsServicing
-    
+    private let productsService: ProductsServicing
+    let title: String
     @Published var products = [Item]()
     
-    init(productsService: ProductsServicing) {
+    init(productsService: ProductsServicing, title: String) {
         self.productsService = productsService
+        self.title = title
     }
     
     func loadItems() {

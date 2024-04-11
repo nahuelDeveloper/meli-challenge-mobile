@@ -28,12 +28,10 @@ struct ProductSearchView: View {
             }
         }
         .onSubmit(of: .search) {
-            print("search")
             searchAction.send(viewModel.searchText)
         }
         .onChange(of: viewModel.searchText) { oldValue, newValue in
             // TODO: add logic to update suggestions as the user types in.
-            print("user typed: \(newValue)")
             viewModel.search()
         }
     }

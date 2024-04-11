@@ -21,7 +21,6 @@ struct ProductsView: View {
                 }
                 // FIXME: (BUG) when user goes to Product Detail and returns, the list disappears.
 //                Button {
-//                    print("select product")
 //                    selectProductAction.send(product)
 //                } label: {
 //                    Text(product.title)
@@ -29,7 +28,7 @@ struct ProductsView: View {
             }
         }
         // TODO: show search text from ProductSearchView.
-        .navigationTitle("Search text")
+        .navigationTitle(viewModel.title)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             viewModel.loadItems()
@@ -43,5 +42,6 @@ struct ProductsView: View {
 }
 
 #Preview {
-    ProductsView(viewModel: ProductsViewModel(productsService: MockProductsService()))
+    ProductsView(viewModel: ProductsViewModel(productsService: MockProductsService(), 
+                                              title: "Search text"))
 }

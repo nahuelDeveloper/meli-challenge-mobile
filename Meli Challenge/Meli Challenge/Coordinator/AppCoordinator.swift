@@ -46,7 +46,8 @@ final class AppCoordinator: ObservableObject {
     
     func createProductsView(searchText: String) -> some View {
         let viewModel = ProductsViewModel(
-            productsService: apiEnvironment == .prod ? ProductsService() : MockProductsService())
+            productsService: apiEnvironment == .prod ? ProductsService() : MockProductsService(),
+            title: searchText)
         let view = ProductsView(viewModel: viewModel)
         bind(productsView: view)
         return view
@@ -56,7 +57,6 @@ final class AppCoordinator: ObservableObject {
         productsView.selectProductAction
             .receive(on: DispatchQueue.main)
             .sink { [weak self] product in
-                print("Selected product")
                 self?.path.append(product)
             }
             .store(in: &cancellables)
