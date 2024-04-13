@@ -7,19 +7,29 @@
 
 import XCTest
 
-//final class ProductsViewModelTests: XCTestCase {
-//    var sut: ProductsViewModel!
-//    
-//    override func setUp() {
-//        sut = ProductsViewModel(productsService: MockProductsService())
-//    }
-//
-//    override func tearDownWithError() throws {
-//        sut = nil
-//    }
-//
-//    func test_getProductsCount() {
-//        sut.loadItems()
-//        XCTAssertEqual(sut.products.count, 2)
-//    }
-//}
+final class ProductsViewModelTests: XCTestCase {
+    var sut: ProductsViewModel!
+    
+    override func setUp() {
+        sut = ProductsViewModel(productsService: MockProductsService(), title: "")
+    }
+
+    override func tearDownWithError() throws {
+        sut = nil
+    }
+
+    func test_getProductsCount() {
+        let expectation = XCTestExpectation(description: "Products loaded")
+        
+        sut.$products
+            .dropFirst()
+            .sink { _ in
+                expectation.fulfill()
+            }
+            .store(in: &sut.cancellables)
+        sut.loadItems()
+        wait(for: [expectation], timeout: 5)
+        
+        XCTAssertEqual(sut.products.count, 2)
+    }
+}

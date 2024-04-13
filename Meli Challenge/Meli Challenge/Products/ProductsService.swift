@@ -23,9 +23,12 @@ class ProductsService: BaseService, ProductsServicing {
     }
 }
 
-//class MockProductsService: ProductsServicing {
-//    
-//    func fetchItems(searchText: String) -> AnyPublisher<[Item], Error> {
-//        // TODO: Figure out if we can create the publisher with mock data
-//    }
-//}
+class MockProductsService: ProductsServicing {
+        
+    func fetchItems(searchText: String) -> AnyPublisher<[Item], Error> {
+        let items = Bundle.main.decode([Item].self, from: "mock_items.json")
+        return Just(items)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+}

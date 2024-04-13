@@ -11,9 +11,13 @@ import Combine
 class ProductsViewModel: ObservableObject {
     private let productsService: ProductsServicing
     let title: String
-    @Published var products = [Item]()
+    @Published var products = [Item]() {
+        didSet {
+            print("products count: \(products.count)")
+        }
+    }
     
-    private var cancellables = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
     
     init(productsService: ProductsServicing, title: String) {
         self.productsService = productsService
