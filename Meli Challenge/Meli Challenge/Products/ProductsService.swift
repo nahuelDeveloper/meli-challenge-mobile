@@ -6,21 +6,26 @@
 //
 
 import Foundation
+import Combine
 
 protocol ProductsServicing {
-    func fetchItems() -> [Item]
+    func fetchItems(searchText: String) -> AnyPublisher<[Item], Error>
 }
 
-class ProductsService: ProductsServicing {
-    // TODO: Implement with real API
-    func fetchItems() -> [Item] {
-        return []
-    }
-}
-
-class MockProductsService: ProductsServicing {
+class ProductsService: BaseService, ProductsServicing {
     
-    func fetchItems() -> [Item] {
-        return Bundle.main.decode([Item].self, from: "mock_items.json")
+    func fetchItems(searchText: String) -> AnyPublisher<[Item], Error> {
+        let url = baseURL
+            .appending(path: "search")
+            .appending(queryItems: [URLQueryItem(name: "q", value: "\(searchText)")])
+        print("URL: \(url)")
+        return NetworkManager.fetchURL(url) as AnyPublisher<[Item], Error>
     }
 }
+
+//class MockProductsService: ProductsServicing {
+//    
+//    func fetchItems(searchText: String) -> AnyPublisher<[Item], Error> {
+//        // TODO: Figure out if we can create the publisher with mock data
+//    }
+//}

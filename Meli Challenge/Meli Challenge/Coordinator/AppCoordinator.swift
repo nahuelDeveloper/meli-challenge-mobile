@@ -45,8 +45,7 @@ final class AppCoordinator: ObservableObject {
     }
     
     func createProductsView(searchText: String) -> some View {
-        let viewModel = ProductsViewModel(
-            productsService: apiEnvironment == .prod ? ProductsService() : MockProductsService(),
+        let viewModel = ProductsViewModel(productsService: ProductsService(),
             title: searchText)
         let view = ProductsView(viewModel: viewModel)
         bind(productsView: view)

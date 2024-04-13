@@ -13,12 +13,22 @@ class ProductsViewModel: ObservableObject {
     let title: String
     @Published var products = [Item]()
     
+    private var cancellables = Set<AnyCancellable>()
+    
     init(productsService: ProductsServicing, title: String) {
         self.productsService = productsService
         self.title = title
     }
     
     func loadItems() {
-        products = productsService.fetchItems()
+        productsService.fetchItems(searchText: title)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                print("load items completion: \(completion)")
+            } receiveValue: { items in
+                print("load items: \(items)")
+                self.products = items
+            }
+            .store(in: &cancellables)
     }
 }

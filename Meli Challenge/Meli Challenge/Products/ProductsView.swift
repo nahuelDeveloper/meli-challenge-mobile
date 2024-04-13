@@ -42,6 +42,6 @@ struct ProductsView: View {
 }
 
 #Preview {
-    ProductsView(viewModel: ProductsViewModel(productsService: MockProductsService(), 
+    ProductsView(viewModel: ProductsViewModel(productsService: ProductsService(),
                                               title: "Search text"))
 }

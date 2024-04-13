@@ -30,6 +30,8 @@
 		70FCF9EF2BC89E1F00047BA2 /* ProductsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FCF9EE2BC89E1F00047BA2 /* ProductsViewModelTests.swift */; };
 		70FCF9F02BC8A80900047BA2 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA461D2BC8095D0042357A /* ProductsViewModel.swift */; };
 		70FCF9F12BC8A81000047BA2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A27BA02BC70D7600BE5B18 /* Item.swift */; };
+		70FCF9F42BC8B2B300047BA2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FCF9F32BC8B2B300047BA2 /* NetworkManager.swift */; };
+		70FCF9F52BC8B2B300047BA2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FCF9F32BC8B2B300047BA2 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,7 @@
 		70FCF9E82BC89CDF00047BA2 /* mock_items.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mock_items.json; sourceTree = "<group>"; };
 		70FCF9EB2BC89CEF00047BA2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		70FCF9EE2BC89E1F00047BA2 /* ProductsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModelTests.swift; sourceTree = "<group>"; };
+		70FCF9F32BC8B2B300047BA2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +204,7 @@
 			children = (
 				70FCF9EB2BC89CEF00047BA2 /* Extensions.swift */,
 				70FCF9E82BC89CDF00047BA2 /* mock_items.json */,
+				70FCF9F32BC8B2B300047BA2 /* NetworkManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -345,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70FCF9F42BC8B2B300047BA2 /* NetworkManager.swift in Sources */,
 				70F46A642BC5DE8E004C3795 /* ProductSearchView.swift in Sources */,
 				70F46A8E2BC5E144004C3795 /* ProductDetailView.swift in Sources */,
 				70FA461E2BC8095D0042357A /* ProductsViewModel.swift in Sources */,
@@ -366,6 +371,7 @@
 				70F46A732BC5DE8F004C3795 /* Meli_ChallengeTests.swift in Sources */,
 				70FCF9ED2BC89CEF00047BA2 /* Extensions.swift in Sources */,
 				70FCF9EF2BC89E1F00047BA2 /* ProductsViewModelTests.swift in Sources */,
+				70FCF9F52BC8B2B300047BA2 /* NetworkManager.swift in Sources */,
 				70FCF9F12BC8A81000047BA2 /* Item.swift in Sources */,
 				70FCF9F02BC8A80900047BA2 /* ProductsViewModel.swift in Sources */,
 				70FA462A2BC869FD0042357A /* ProductsService.swift in Sources */,
