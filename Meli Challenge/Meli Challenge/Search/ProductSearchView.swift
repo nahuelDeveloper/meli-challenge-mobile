@@ -21,8 +21,7 @@ struct ProductSearchView: View {
         .navigationTitle("Meli Challenge")
         .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $viewModel.searchText, prompt: "Buscar en Mercado Libre") {
-            // TODO: load suggestions from view model.
-            ForEach($viewModel.searchSuggestions, id: \.self) { suggestion in
+            ForEach($viewModel.filteredSuggestions, id: \.self) { suggestion in
                 Text(suggestion.wrappedValue)
                     .searchCompletion(suggestion.wrappedValue)
             }
@@ -32,7 +31,7 @@ struct ProductSearchView: View {
         }
         .onChange(of: viewModel.searchText) { oldValue, newValue in
             // TODO: add logic to update suggestions as the user types in.
-            viewModel.search()
+            viewModel.updateSuggestions()
         }
     }
 }

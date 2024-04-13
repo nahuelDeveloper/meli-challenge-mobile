@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		705B8B5D2BCA3BAC007B3761 /* search_suggestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 705B8B5C2BCA3BAC007B3761 /* search_suggestions.json */; };
+		705B8B5E2BCA3BAC007B3761 /* search_suggestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 705B8B5C2BCA3BAC007B3761 /* search_suggestions.json */; };
 		70A27B9F2BC6CE7100BE5B18 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A27B9E2BC6CE7100BE5B18 /* AppCoordinator.swift */; };
 		70A27BA12BC70D7600BE5B18 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A27BA02BC70D7600BE5B18 /* Item.swift */; };
 		70F46A622BC5DE8E004C3795 /* Meli_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F46A612BC5DE8E004C3795 /* Meli_ChallengeApp.swift */; };
@@ -52,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		705B8B5C2BCA3BAC007B3761 /* search_suggestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search_suggestions.json; sourceTree = "<group>"; };
 		70A27B9E2BC6CE7100BE5B18 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		70A27BA02BC70D7600BE5B18 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		70F46A5E2BC5DE8E004C3795 /* Meli Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meli Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +208,7 @@
 				70FCF9EB2BC89CEF00047BA2 /* Extensions.swift */,
 				70FCF9E82BC89CDF00047BA2 /* mock_items.json */,
 				70FCF9F32BC8B2B300047BA2 /* NetworkManager.swift */,
+				705B8B5C2BCA3BAC007B3761 /* search_suggestions.json */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -324,6 +328,7 @@
 				70F46A692BC5DE8F004C3795 /* Preview Assets.xcassets in Resources */,
 				70F46A662BC5DE8F004C3795 /* Assets.xcassets in Resources */,
 				70FCF9E92BC89CDF00047BA2 /* mock_items.json in Resources */,
+				705B8B5D2BCA3BAC007B3761 /* search_suggestions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70FCF9EA2BC89CDF00047BA2 /* mock_items.json in Resources */,
+				705B8B5E2BCA3BAC007B3761 /* search_suggestions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,10 +14,11 @@ private let mockSearchSuggestions = ["auto", "mesa", "libro", "cocina", "billete
 
 class ProductSearchViewModel: ObservableObject {
     @Published var searchText = ""
-    var searchSuggestions = mockSearchSuggestions
+    lazy var searchSuggestions = Bundle.main.decode([String].self, from: "search_suggestions.json")
+    var filteredSuggestions = [String]()
     
-    func search() {
-        searchSuggestions = mockSearchSuggestions.filter({ suggestion in
+    func updateSuggestions() {
+        filteredSuggestions = searchSuggestions.filter({ suggestion in
             suggestion.contains(searchText)
         })
     }
