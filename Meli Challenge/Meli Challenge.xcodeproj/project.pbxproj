@@ -107,6 +107,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70A0DE532BCC5D3100FEDE5B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				70FCF9F32BC8B2B300047BA2 /* NetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		70A0DE542BCC5D6900FEDE5B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				70FCF9E82BC89CDF00047BA2 /* mock_items.json */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		70A27B9D2BC6CE5F00BE5B18 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +160,7 @@
 				70FA46222BC811D00042357A /* Products */,
 				70FA46232BC813180042357A /* Detail */,
 				70FCF9F22BC8AB1E00047BA2 /* Model */,
+				70A0DE532BCC5D3100FEDE5B /* Networking */,
 				70FA46242BC868BA0042357A /* Utils */,
 				70F46A652BC5DE8F004C3795 /* Assets.xcassets */,
 				70F46A672BC5DE8F004C3795 /* Preview Content */,
@@ -209,9 +226,8 @@
 		70FA46242BC868BA0042357A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				70A0DE542BCC5D6900FEDE5B /* Mocks */,
 				70FCF9EB2BC89CEF00047BA2 /* Extensions.swift */,
-				70FCF9E82BC89CDF00047BA2 /* mock_items.json */,
-				70FCF9F32BC8B2B300047BA2 /* NetworkManager.swift */,
 				705B8B5C2BCA3BAC007B3761 /* search_suggestions.json */,
 			);
 			path = Utils;

@@ -12,6 +12,13 @@ class BaseService {
     let baseURL = URL(string: "https://api.mercadolibre.com/sites/MLA")!
 }
 
+enum APIEnvironment {
+    case mock
+    case prod
+}
+
+let apiEnvironment = APIEnvironment.prod
+
 struct APIResponse<T: Decodable>: Decodable {
     let results: T
 }

@@ -8,13 +8,6 @@
 import SwiftUI
 import Combine
 
-enum APIEnvironment {
-    case mock
-    case prod
-}
-
-let apiEnvironment = APIEnvironment.mock
-
 final class AppCoordinator: ObservableObject {
     @Published var path: NavigationPath
     private var cancellables = Set<AnyCancellable>()
