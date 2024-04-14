@@ -11,12 +11,12 @@ import Combine
 class ProductsViewModel: ObservableObject {
     private let productsService: ProductsServicing
     let title: String
-    @Published var products = [Item]() {
+    private(set) var products = [Item]() {
         didSet {
             print("products count: \(products.count)")
         }
     }
-    
+    @Published var state = State.idle
     var cancellables = Set<AnyCancellable>()
     
     init(productsService: ProductsServicing, title: String) {
@@ -25,6 +25,7 @@ class ProductsViewModel: ObservableObject {
     }
     
     func loadItems() {
+        state = .loading
         productsService.fetchItems(searchText: title)
             .receive(on: DispatchQueue.main)
             .sink { completion in
@@ -32,7 +33,16 @@ class ProductsViewModel: ObservableObject {
             } receiveValue: { items in
                 print("load items: \(items)")
                 self.products = items
+                self.state = .loaded
             }
             .store(in: &cancellables)
+    }
+}
+
+extension ProductsViewModel {
+    enum State {
+        case idle
+        case loading
+        case loaded
     }
 }

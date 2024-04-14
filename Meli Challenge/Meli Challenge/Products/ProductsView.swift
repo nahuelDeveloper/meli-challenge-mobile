@@ -14,30 +14,31 @@ struct ProductsView: View {
     let selectProductAction = PassthroughSubject<Item, Never>()
     
     var body: some View {
-        List {
-            ForEach(viewModel.products) { product in
-                NavigationLink(product.title) {
-                    createProductDetailView(product: product)
+        content
+            .navigationTitle(viewModel.title)
+            .navigationBarTitleDisplayMode(.inline)
+            .onFirstAppear { viewModel.loadItems() }
+    }
+    
+    private var content: some View {
+        switch viewModel.state {
+        case .idle:
+            return Color.clear.eraseToAnyView()
+        case .loading:
+            return Spinner(isAnimating: true, style: .large).eraseToAnyView()
+        case .loaded:
+            return List {
+                ForEach(viewModel.products) { product in
+                    NavigationLink(product.title) {
+                        createProductDetailView(product: product)
+                    }
                 }
-                // FIXME: (BUG) when user goes to Product Detail and returns, the list disappears.
-//                Button {
-//                    selectProductAction.send(product)
-//                } label: {
-//                    Text(product.title)
-//                }
-            }
-        }
-        // TODO: show search text from ProductSearchView.
-        .navigationTitle(viewModel.title)
-        .navigationBarTitleDisplayMode(.inline)
-        .onAppear {
-            viewModel.loadItems()
+            }.eraseToAnyView()
         }
     }
     
     private func createProductDetailView(product: Item) -> some View {
-        let view = ProductDetailView(viewModel: ProductDetailViewModel(product: product))
-        return view
+        return ProductDetailView(viewModel: ProductDetailViewModel(product: product))
     }
 }
 
