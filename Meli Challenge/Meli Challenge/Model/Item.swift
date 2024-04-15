@@ -11,4 +11,9 @@ struct Item: Decodable, Equatable, Hashable, Identifiable {
     let id: String
     let title: String
     let price: Double
+    let thumbnail: String
+    
+    var thumbnailURL: URL {
+        return URL(string: thumbnail)!
+    }
 }

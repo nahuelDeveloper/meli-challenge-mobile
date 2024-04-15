@@ -30,7 +30,6 @@ struct ProductSearchView: View {
             searchAction.send(viewModel.searchText)
         }
         .onChange(of: viewModel.searchText) { oldValue, newValue in
-            // TODO: add logic to update suggestions as the user types in.
             viewModel.updateSuggestions()
         }
     }

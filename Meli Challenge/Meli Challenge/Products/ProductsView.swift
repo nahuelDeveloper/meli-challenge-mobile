@@ -29,12 +29,26 @@ struct ProductsView: View {
         case .loaded:
             return List {
                 ForEach(viewModel.products) { product in
-                    NavigationLink(product.title) {
+                    NavigationLink {
                         createProductDetailView(product: product)
+                    } label: {
+                        HStack(spacing: 20) {
+                            createProductImageView(url: product.thumbnailURL)
+                            Text(product.title)
+                        }
                     }
                 }
             }.eraseToAnyView()
         }
+    }
+    
+    private func createProductImageView(url: URL) -> some View {
+        AsyncImage(url: url) { image in
+            image.resizable()
+        } placeholder: {
+            Spinner(isAnimating: true, style: .medium)
+        }
+        .frame(width: 80, height: 80)
     }
     
     private func createProductDetailView(product: Item) -> some View {

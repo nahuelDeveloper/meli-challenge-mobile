@@ -29,5 +29,8 @@ struct ProductDetailView: View {
 
 #Preview {
     ProductDetailView(viewModel: ProductDetailViewModel(
-        product: Item(id: "MLA1", title: "Producto 1", price: 100.0)))
+        product: Item(id: "MLA1", 
+                      title: "Producto 1",
+                      price: 100.0,
+                      thumbnail: "http://http2.mlstatic.com/D_609155-MLA75617599150_042024-I.jpg")))
 }
