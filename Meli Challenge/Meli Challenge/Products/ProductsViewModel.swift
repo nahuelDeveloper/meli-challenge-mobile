@@ -30,8 +30,10 @@ class ProductsViewModel: ObservableObject {
         productsService.fetchItems(searchText: title)
             .receive(on: DispatchQueue.main)
             .sink { completion in
-                // Here we could determine an appropriate error message based on the error
-                self.state = .error
+                if case .failure(_) = completion {
+                    // Here we could determine an appropriate error message based on the newtorking error
+                    self.state = .error
+                }
             } receiveValue: { items in
                 self.products = items
                 self.state = .loaded
