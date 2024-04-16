@@ -26,6 +26,7 @@ struct ProductSearchView: View {
                         .searchCompletion(suggestion.wrappedValue)
                 }
             }
+            .textInputAutocapitalization(.never)
             .onChange(of: viewModel.searchText) { _, _ in
                 viewModel.updateSuggestions()
             }
