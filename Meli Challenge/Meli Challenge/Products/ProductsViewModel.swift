@@ -30,9 +30,9 @@ class ProductsViewModel: ObservableObject {
         productsService.fetchItems(searchText: title)
             .receive(on: DispatchQueue.main)
             .sink { completion in
-                print("load items completion: \(completion)")
+                // Here we could determine an appropriate error message based on the error
+                self.state = .error
             } receiveValue: { items in
-                print("load items: \(items)")
                 self.products = items
                 self.state = .loaded
             }
@@ -46,5 +46,6 @@ extension ProductsViewModel {
         case idle
         case loading
         case loaded
+        case error
     }
 }

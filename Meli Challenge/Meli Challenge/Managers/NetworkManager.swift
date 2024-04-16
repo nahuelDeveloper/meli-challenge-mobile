@@ -12,16 +12,19 @@ import Combine
 class NetworkManager {
     static let apiEnvironment = APIEnvironment.prod
     static let baseURL = URL(string: "https://api.mercadolibre.com/sites/MLA")!
-    
-    static func fetchURL<T: Decodable>(_ url: URL) -> AnyPublisher<T, Error> {
+        
+    static func fetchURL2<T: Decodable>(_ url: URL) -> AnyPublisher<T, Error> {
         URLSession.shared.dataTaskPublisher(for: url)
             .tryMap { result in
-                let decoder = JSONDecoder()
-                return try decoder.decode(APIResponse<T>.self, from: result.data)
+                guard let response = result.response as? HTTPURLResponse, response.statusCode == 200 else {
+                    // Here we should manage all possible errors appropriately
+                    throw URLError(.badServerResponse)
+                }
+                return result.data
             }
-            .tryMap { result in
-                result.results
-            }
-            .eraseToAnyPublisher()
+            .decode(type: APIResponse<T>.self, decoder: JSONDecoder())
+            .map {
+                $0.results
+            }.eraseToAnyPublisher()
     }
 }

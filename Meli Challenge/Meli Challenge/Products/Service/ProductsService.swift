@@ -16,6 +16,6 @@ class ProductsService: ProductsServicing {
             .appending(path: "search")
             .appending(queryItems: [URLQueryItem(name: "q", value: "\(searchText)")])
         print("URL: \(url)")
-        return NetworkManager.fetchURL(url) as AnyPublisher<[Product], Error>
+        return NetworkManager.fetchURL2(url) as AnyPublisher<[Product], Error>
     }
 }

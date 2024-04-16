@@ -11,6 +11,8 @@ import Combine
 /// Displays a list of products based on the text searched by the user in **ProductSearchView**.
 struct ProductsView: View {
     @ObservedObject var viewModel: ProductsViewModel
+    @Environment(\.dismiss) private var dismiss
+    @State private var isShowingErrorAlert = false
         
     let selectProductAction = PassthroughSubject<Product, Never>()
     
@@ -30,6 +32,23 @@ struct ProductsView: View {
             return Spinner(isAnimating: true, style: .large).eraseToAnyView()
         case .loaded:
             return productListView.eraseToAnyView()
+        case .error:
+            showErrorAlert()
+            return emptyView.alert("Ha ocurrido un error", isPresented: $isShowingErrorAlert) {
+                Button("Aceptar", action: {
+                    viewModel.state = .loaded
+                    dismiss()
+                })
+            } message: {
+                Text("Por favor, vuelva a intentar su búsqueda en otro momento")
+            }.eraseToAnyView()
+        }
+    }
+    
+    func showErrorAlert() {
+        // Wait until view is updated
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.isShowingErrorAlert = true
         }
     }
     
