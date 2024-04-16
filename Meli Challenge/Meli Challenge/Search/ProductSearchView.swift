@@ -17,6 +17,8 @@ struct ProductSearchView: View {
         content
             .navigationTitle("Meli Challenge")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.yellow, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
             .searchable(text: $viewModel.searchText, prompt: "Buscar en Mercado Libre") {
                 ForEach($viewModel.filteredSuggestions, id: \.self) { suggestion in
                     Text(suggestion.wrappedValue)
@@ -46,9 +48,12 @@ struct ProductSearchView: View {
     }
     
     private var searchedTextsView: some View {
-        Section("Búsquedas recientes") {
-            List(viewModel.searchedTexts, id: \.self) { searchedText in
-                Text(searchedText)
+        VStack {
+            Spacer(minLength: 10)
+            Section("Búsquedas recientes") {
+                List(viewModel.searchedTexts, id: \.self) { searchedText in
+                    Text(searchedText)
+                }
             }
         }
     }

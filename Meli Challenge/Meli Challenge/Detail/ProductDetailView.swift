@@ -20,6 +20,8 @@ struct ProductDetailView: View {
             Text("$\(viewModel.product.price)")
                 .font(.system(.largeTitle))
         }
+        .toolbarBackground(Color.yellow, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
         Spacer()
         Spacer()
         Spacer()
