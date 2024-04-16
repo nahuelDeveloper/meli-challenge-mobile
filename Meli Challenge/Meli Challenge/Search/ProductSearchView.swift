@@ -54,7 +54,10 @@ struct ProductSearchView: View {
             Spacer(minLength: 10)
             Section("Búsquedas recientes") {
                 List(viewModel.searchedTexts, id: \.self) { searchedText in
-                    Text(searchedText)
+                    Button(searchedText) {
+                        viewModel.searchText = searchedText
+                        searchAction.send(viewModel.searchText)
+                    }
                 }
                 deleteSearchedTextsView
             }
