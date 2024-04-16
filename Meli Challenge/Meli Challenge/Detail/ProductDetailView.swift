@@ -14,14 +14,17 @@ struct ProductDetailView: View {
         Spacer()
         VStack(spacing: 20) {
             Text(viewModel.product.title)
-                    .font(.title)
-            Image(systemName: "car.fill")
-                .font(.system(size: 220))
-            Text("$\(viewModel.product.price)")
-                .font(.system(.largeTitle))
+                .font(.title2)
+            AsyncImage(url: viewModel.product.thumbnailURL) { image in
+                image.resizable()
+            } placeholder: {
+                Spinner(isAnimating: true, style: .medium)
+            }
+            .frame(width: 180, height: 180)
+            Text(viewModel.product.price, format: .currency(code: viewModel.currencyCode))
+                .font(.title2)
         }
-        .toolbarBackground(Color.yellow, for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarViewModifier()
         Spacer()
         Spacer()
         Spacer()

@@ -36,6 +36,10 @@ extension View {
     func onFirstAppear(_ action: @escaping () -> ()) -> some View {
         modifier(FirstAppear(action: action))
     }
+    
+    func toolbarViewModifier() -> some View {
+        self.modifier(ToolbarViewModifier())
+    }
 }
 
 private struct FirstAppear: ViewModifier {

@@ -10,6 +10,7 @@ import Combine
 
 class ProductDetailViewModel {
     let product: Item
+    let currencyCode = Locale.current.currency?.identifier ?? "USD"
     
     init(product: Item) {
         self.product = product

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		700325842BCAFA1200F3FE89 /* ProductSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700325832BCAFA1200F3FE89 /* ProductSearchViewModelTests.swift */; };
 		700325852BCAFA3800F3FE89 /* ProductSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FA461B2BC8094B0042357A /* ProductSearchViewModel.swift */; };
+		700F62EF2BCEE33E00DDBA62 /* ToolbarViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700F62EE2BCEE33E00DDBA62 /* ToolbarViewModifier.swift */; };
 		705B8B5D2BCA3BAC007B3761 /* search_suggestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 705B8B5C2BCA3BAC007B3761 /* search_suggestions.json */; };
 		705B8B5E2BCA3BAC007B3761 /* search_suggestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 705B8B5C2BCA3BAC007B3761 /* search_suggestions.json */; };
 		70809DD22BCE13DA00AAFBAA /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70809DD12BCE13DA00AAFBAA /* StorageManager.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		700325832BCAFA1200F3FE89 /* ProductSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchViewModelTests.swift; sourceTree = "<group>"; };
+		700F62EE2BCEE33E00DDBA62 /* ToolbarViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewModifier.swift; sourceTree = "<group>"; };
 		705B8B5C2BCA3BAC007B3761 /* search_suggestions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search_suggestions.json; sourceTree = "<group>"; };
 		70809DD12BCE13DA00AAFBAA /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		70A0DE552BCC637000FEDE5B /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		70FA46242BC868BA0042357A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				700F62EE2BCEE33E00DDBA62 /* ToolbarViewModifier.swift */,
 				70A0DE552BCC637000FEDE5B /* Spinner.swift */,
 				70FCF9EB2BC89CEF00047BA2 /* Extensions.swift */,
 				705B8B5C2BCA3BAC007B3761 /* search_suggestions.json */,
@@ -387,6 +390,7 @@
 				70F46A642BC5DE8E004C3795 /* ProductSearchView.swift in Sources */,
 				70F46A8E2BC5E144004C3795 /* ProductDetailView.swift in Sources */,
 				70809DD22BCE13DA00AAFBAA /* StorageManager.swift in Sources */,
+				700F62EF2BCEE33E00DDBA62 /* ToolbarViewModifier.swift in Sources */,
 				70FA461E2BC8095D0042357A /* ProductsViewModel.swift in Sources */,
 				70A0DE562BCC637000FEDE5B /* Spinner.swift in Sources */,
 				70A27B9F2BC6CE7100BE5B18 /* AppCoordinator.swift in Sources */,

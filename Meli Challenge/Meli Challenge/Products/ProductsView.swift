@@ -17,8 +17,7 @@ struct ProductsView: View {
         content
             .navigationTitle(viewModel.title)
             .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(Color.yellow, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarViewModifier()
             .onFirstAppear { viewModel.loadItems() }
     }
     

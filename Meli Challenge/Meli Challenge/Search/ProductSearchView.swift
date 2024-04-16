@@ -17,8 +17,7 @@ struct ProductSearchView: View {
         content
             .navigationTitle("Meli Challenge")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(Color.yellow, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarViewModifier()
             .searchable(text: $viewModel.searchText, prompt: "Buscar en Mercado Libre") {
                 ForEach($viewModel.filteredSuggestions, id: \.self) { suggestion in
                     Text(suggestion.wrappedValue)
