@@ -10,6 +10,7 @@ import SwiftUI
 
 class ProductSearchViewModel: ObservableObject {
     @Published var searchText = ""
+    @Published var searchedTexts = StorageManager.shared.retrieveSearchedTexts()
     private(set) var searchSuggestions = Bundle.main.decode([String].self, from: "search_suggestions.json")
     var filteredSuggestions = [String]()
     

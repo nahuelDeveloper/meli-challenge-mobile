@@ -32,6 +32,7 @@ final class AppCoordinator: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] searchText in
                 print("Search text: \(searchText)")
+                StorageManager.shared.storeSearchedText(searchText)
                 self?.path.append(searchText)
             }
             .store(in: &cancellables)
