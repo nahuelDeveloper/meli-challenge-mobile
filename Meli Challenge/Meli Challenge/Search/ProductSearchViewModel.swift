@@ -18,5 +18,9 @@ class ProductSearchViewModel: ObservableObject {
         filteredSuggestions = searchSuggestions.filter({ suggestion in
             suggestion.contains(searchText)
         })
+        // If user hadn't enter any text yet, show 10 random search suggestions
+        if filteredSuggestions.isEmpty {
+            filteredSuggestions = Array(searchSuggestions.shuffled().prefix(10))
+        }
     }
 }

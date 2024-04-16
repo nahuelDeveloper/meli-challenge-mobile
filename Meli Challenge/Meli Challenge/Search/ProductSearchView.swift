@@ -24,11 +24,11 @@ struct ProductSearchView: View {
                         .searchCompletion(suggestion.wrappedValue)
                 }
             }
+            .onChange(of: viewModel.searchText) { _, _ in
+                viewModel.updateSuggestions()
+            }
             .onSubmit(of: .search) {
                 searchAction.send(viewModel.searchText)
-            }
-            .onChange(of: viewModel.searchText) { oldValue, newValue in
-                viewModel.updateSuggestions()
             }
     }
     
