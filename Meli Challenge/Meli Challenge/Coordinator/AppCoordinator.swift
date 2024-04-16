@@ -32,7 +32,6 @@ final class AppCoordinator: ObservableObject {
         productSearchView.searchAction
             .receive(on: DispatchQueue.main)
             .sink { [weak self] searchText in
-                print("Search text: \(searchText)")
                 StorageManager.shared.storeSearchedText(searchText)
                 self?.path.append(searchText)
             }

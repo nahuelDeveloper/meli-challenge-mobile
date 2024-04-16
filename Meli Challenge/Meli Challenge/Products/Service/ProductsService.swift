@@ -15,7 +15,6 @@ class ProductsService: ProductsServicing {
         let url = NetworkManager.baseURL
             .appending(path: "search")
             .appending(queryItems: [URLQueryItem(name: "q", value: "\(searchText)")])
-        print("URL: \(url)")
         return NetworkManager.fetchURL2(url) as AnyPublisher<[Product], Error>
     }
 }
