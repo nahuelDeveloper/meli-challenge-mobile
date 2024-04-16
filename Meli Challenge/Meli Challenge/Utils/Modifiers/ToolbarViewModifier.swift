@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Modifier that allows customization of the Navigation Bar.
 struct ToolbarViewModifier: ViewModifier {
     
     func body(content: Content) -> some View {

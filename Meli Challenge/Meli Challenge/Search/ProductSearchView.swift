@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 
+/// Initial screen of the app. It allows the user to search any product and navigate to **ProductsView**.
 struct ProductSearchView: View {
     @ObservedObject var viewModel: ProductSearchViewModel
     

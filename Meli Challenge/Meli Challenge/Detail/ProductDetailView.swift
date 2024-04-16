@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Last screen of the app. Shows the detail of the **Product** selected by the user in **ProductsView**.
 struct ProductDetailView: View {
     let viewModel: ProductDetailViewModel
     
@@ -34,7 +35,7 @@ struct ProductDetailView: View {
 
 #Preview {
     ProductDetailView(viewModel: ProductDetailViewModel(
-        product: Item(id: "MLA1", 
+        product: Product(id: "MLA1", 
                       title: "Producto 1",
                       price: 100.0,
                       thumbnail: "http://http2.mlstatic.com/D_609155-MLA75617599150_042024-I.jpg")))

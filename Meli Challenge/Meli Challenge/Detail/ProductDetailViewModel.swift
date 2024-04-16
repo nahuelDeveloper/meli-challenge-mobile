@@ -8,11 +8,12 @@
 import Foundation
 import Combine
 
+/// Encapsulates business logic for **ProductDetail**.
 class ProductDetailViewModel {
-    let product: Item
+    let product: Product
     let currencyCode = Locale.current.currency?.identifier ?? "USD"
     
-    init(product: Item) {
+    init(product: Product) {
         self.product = product
     }
 }

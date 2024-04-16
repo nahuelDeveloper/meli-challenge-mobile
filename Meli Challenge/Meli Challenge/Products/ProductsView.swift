@@ -8,10 +8,11 @@
 import SwiftUI
 import Combine
 
+/// Displays a list of products based on the text searched by the user in **ProductSearchView**.
 struct ProductsView: View {
     @ObservedObject var viewModel: ProductsViewModel
         
-    let selectProductAction = PassthroughSubject<Item, Never>()
+    let selectProductAction = PassthroughSubject<Product, Never>()
     
     var body: some View {
         content
@@ -52,7 +53,7 @@ struct ProductsView: View {
         .frame(width: 80, height: 80)
     }
     
-    private func createProductDetailView(product: Item) -> some View {
+    private func createProductDetailView(product: Product) -> some View {
         return ProductDetailView(viewModel: ProductDetailViewModel(product: product))
     }
 }

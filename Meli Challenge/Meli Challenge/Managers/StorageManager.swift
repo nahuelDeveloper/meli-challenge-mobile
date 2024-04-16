@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Wrapper class for **UserDefaults**. Handles local storage of texts searched by the user.
 class StorageManager {
     private let userDefaults = UserDefaults.standard
     private let searchedTextsKey = "searchedTexts"

@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+/// A simple loader, used to display while asynchronous work is being done.
 struct Spinner: UIViewRepresentable {
     let isAnimating: Bool
     let style: UIActivityIndicatorView.Style

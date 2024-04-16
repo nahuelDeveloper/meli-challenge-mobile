@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Entry point for the app. Here we instantiate the **AppCoordinator**. Along with a **NavigationStack**, the app navigation is handled.
 @main
 struct Meli_ChallengeApp: App {
     @StateObject private var appCoordinator = AppCoordinator(path: NavigationPath())
@@ -18,7 +19,7 @@ struct Meli_ChallengeApp: App {
                     .navigationDestination(for: String.self) { searchText in
                         appCoordinator.createProductsView(searchText: searchText)
                     }
-                    .navigationDestination(for: Item.self) { product in
+                    .navigationDestination(for: Product.self) { product in
                         appCoordinator.createProductDetailView(product: product)
                     }
             }

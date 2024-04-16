@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 
+/// Manages navigation between the app screens. This class instantiates the Views, and injects Services and ViewModels. It also detects the events from the Views that should fire navigation between screens.
 final class AppCoordinator: ObservableObject {
     @Published var path: NavigationPath
     private var cancellables = Set<AnyCancellable>()
@@ -39,7 +40,7 @@ final class AppCoordinator: ObservableObject {
     }
     
     func createProductsView(searchText: String) -> some View {
-        let productsService: ProductsServicing = apiEnvironment == .mock ? MockProductsService() : ProductsService()
+        let productsService: ProductsServicing = NetworkManager.apiEnvironment == .mock ? MockProductsService() : ProductsService()
         let viewModel = ProductsViewModel(productsService: productsService, title: searchText)
         let view = ProductsView(viewModel: viewModel)
         bind(productsView: view)
@@ -55,7 +56,7 @@ final class AppCoordinator: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func createProductDetailView(product: Item) -> some View {
+    func createProductDetailView(product: Product) -> some View {
         let view = ProductDetailView(viewModel: ProductDetailViewModel(product: product))
         return view
     }

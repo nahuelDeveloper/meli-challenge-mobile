@@ -8,22 +8,10 @@
 import Foundation
 import Combine
 
-class BaseService {
-    let baseURL = URL(string: "https://api.mercadolibre.com/sites/MLA")!
-}
-
-enum APIEnvironment {
-    case mock
-    case prod
-}
-
-let apiEnvironment = APIEnvironment.prod
-
-struct APIResponse<T: Decodable>: Decodable {
-    let results: T
-}
-
+/// Encapsulates logic related to Networking.
 class NetworkManager {
+    static let apiEnvironment = APIEnvironment.prod
+    static let baseURL = URL(string: "https://api.mercadolibre.com/sites/MLA")!
     
     static func fetchURL<T: Decodable>(_ url: URL) -> AnyPublisher<T, Error> {
         URLSession.shared.dataTaskPublisher(for: url)
