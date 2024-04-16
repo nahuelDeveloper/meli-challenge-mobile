@@ -35,4 +35,8 @@ class StorageManager {
         }
         return [String]()
     }
+    
+    func deleteSearchedTexts() {
+        userDefaults.setValue(nil, forKey: searchedTextsKey)
+    }
 }

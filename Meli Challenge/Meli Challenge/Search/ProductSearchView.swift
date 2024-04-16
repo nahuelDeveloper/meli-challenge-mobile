@@ -11,6 +11,7 @@ import Combine
 /// Initial screen of the app. It allows the user to search any product and navigate to **ProductsView**.
 struct ProductSearchView: View {
     @ObservedObject var viewModel: ProductSearchViewModel
+    @State private var isShowingDeleteAlert = false
     
     let searchAction = PassthroughSubject<String, Never>()
     
@@ -54,7 +55,21 @@ struct ProductSearchView: View {
                 List(viewModel.searchedTexts, id: \.self) { searchedText in
                     Text(searchedText)
                 }
+                deleteSearchedTextsView
             }
+        }
+    }
+    
+    private var deleteSearchedTextsView: some View {
+        Button("Borrar historial") {
+            isShowingDeleteAlert = true
+        }
+        .alert("¿Desea borrar el historial de búsqueda?", isPresented: $isShowingDeleteAlert) {
+            Button("Borrar", role: .destructive) {
+                viewModel.deleteSearchedTexts()
+            }
+        } message: {
+            Text("Tenga en cuenta que esta acción no se puede deshacer")
         }
     }
 }

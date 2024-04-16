@@ -25,4 +25,10 @@ class ProductSearchViewModel: ObservableObject {
             filteredSuggestions = Array(searchSuggestions.shuffled().prefix(10))
         }
     }
+    
+    /// Remove stored searched texts
+    func deleteSearchedTexts() {
+        StorageManager.shared.deleteSearchedTexts()
+        searchedTexts = StorageManager.shared.retrieveSearchedTexts()
+    }
 }
