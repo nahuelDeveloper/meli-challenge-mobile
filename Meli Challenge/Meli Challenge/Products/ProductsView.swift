@@ -29,6 +29,27 @@ struct ProductsView: View {
         case .loading:
             return Spinner(isAnimating: true, style: .large).eraseToAnyView()
         case .loaded:
+            return productListView.eraseToAnyView()
+        }
+    }
+    
+    private func createProductImageView(url: URL) -> some View {
+        AsyncImage(url: url) { image in
+            image.resizable()
+        } placeholder: {
+            Spinner(isAnimating: true, style: .medium)
+        }
+        .frame(width: 80, height: 80)
+    }
+    
+    private func createProductDetailView(product: Product) -> some View {
+        return ProductDetailView(viewModel: ProductDetailViewModel(product: product))
+    }
+        
+    private var productListView: some View {
+        if viewModel.products.isEmpty {
+            return emptyView.eraseToAnyView()
+        } else {
             return List {
                 ForEach(viewModel.products) { product in
                     NavigationLink {
@@ -44,17 +65,14 @@ struct ProductsView: View {
         }
     }
     
-    private func createProductImageView(url: URL) -> some View {
-        AsyncImage(url: url) { image in
-            image.resizable()
-        } placeholder: {
-            Spinner(isAnimating: true, style: .medium)
+    private var emptyView: some View {
+        VStack {
+            Spacer()
+            Text("No hay resultados disponibles")
+                .font(.headline)
+            Spacer()
+            Spacer()
         }
-        .frame(width: 80, height: 80)
-    }
-    
-    private func createProductDetailView(product: Product) -> some View {
-        return ProductDetailView(viewModel: ProductDetailViewModel(product: product))
     }
 }
 
